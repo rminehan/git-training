@@ -13,12 +13,6 @@ date: 2021-10-04
                   |_|                       
 ```
 
----
-
-# Today
-
-gitiquette
-
 Table manners related to git and MR's
 
 ---
@@ -353,7 +347,7 @@ Tight coupling: Lose ability to interactively rebase, cherry pick etc...
 
 > (Commit diarrhea) Painful to rebase when conflicts
 
-To the repl!
+No time to demo... :sad-parrot:
 
 ---
 
@@ -412,6 +406,8 @@ But for very complex MR's they might look at individual commits
 
 # Questions and examples
 
+## Questions
+
 Can you succinctly describe your change in under 50 characters?
 
 Is the build passing?
@@ -419,6 +415,10 @@ Is the build passing?
 Is my commit fixing a previous commit?
 
 How big is the patch for my commit?
+
+Could I reorder or even remove some commits?
+
+## Examples
 
 ```
 Add service layer
@@ -547,7 +547,7 @@ Summary
 
 # Potential Objection
 
-> You've sold me on atomic MR's, but not atomic commits
+> I'm sold on atomic MR's, but not atomic commits
 >
 > By the time it gets to the reviewer it's all smushed together anyway,
 >
@@ -557,7 +557,7 @@ Summary
 
 # Fair points
 
-> You've sold me on atomic MR's, but not atomic commits
+> I'm sold on atomic MR's, but not atomic commits
 >
 > By the time it gets to the reviewer it's all smushed together anyway,
 >
@@ -885,6 +885,26 @@ Benefits everyone
 
 ---
 
+# The ideal scenario
+
+MR glides through review
+
+Quickly approved and merged
+
+---
+
+# Avoid nasty things
+
+- MR limbo
+
+
+- conflicts
+
+
+- time wasted
+
+---
+
 # What I often experience as a reviewer
 
 - dev: commit, commit, commit
@@ -920,9 +940,6 @@ Can feel a bit like someone just threw a baby over the fence into my yard
 
 
 - provide missing context
-
-
-- anticipate questions
 
 
 - check your work
@@ -968,9 +985,7 @@ There will be parts of your MR that are more tricky
 
 > There will be parts of your MR that are more tricky
 
-If your reviewer could only give you 15 minutes,
-
-which part of your MR should they spend it on?
+If your reviewer could only give you 15 minutes...
 
 ---
 
@@ -1016,13 +1031,7 @@ they'll default to reviewing the whole thing
 
 > they'll default to reviewing the whole thing
 
-Some simple changes result in big diffs
-
-e.g. moving text between files
-
-Some important complex changes are hidden in small diffs
-
-e.g. subtle change in logic
+An MR is a mix of big and small diffs
 
 ---
 
@@ -1032,17 +1041,17 @@ e.g. subtle change in logic
 >
 > Some important complex changes are hidden in small diffs
 
-Big diffs are harder to process
+Big diffs suck out mental energy
 
-After 10 minutes of staring at it:
-
-> oh you're just changing it to a pattern match and indenting it
+And maybe aren't important
 
 ---
 
 # Help your reviewer
 
 > They don't have your context and intuition
+
+Take them to the place where it matters
 
 Tell them what you need
 
@@ -1079,13 +1088,19 @@ Tell my story...
 
 ---
 
-# Juniors vs Seniors
+# Knowing what you don't know
 
-Targeted review makes more sense as you get more senior
+Easier to ask for targeted review when you know what you don't know
 
-Juniors don't know what they don't know
+---
 
-Comprehensive review makes more sense for juniors
+# For juniors
+
+> Easier to ask for targeted review when you know what you don't know
+
+I would still do a comprehensive review
+
+But I would at least know the proportionate amount of energy to spend
 
 ---
 
@@ -1093,65 +1108,63 @@ Comprehensive review makes more sense for juniors
 
 Provide missing context
 
-Flows on nicely
-
 ---
 
 # Provide missing context
 
 Recapping:
 
-> They don't have your context and intuition
-
-Depends on the level of collaboration throughout
-
----
-
-# Supplying context
-
-At the minimum: a link in the MR description back to the jira
-
----
-
-# Supplying context
-
-At the minimum: a link in the MR description back to the jira
-
-Better: explaining which acceptance criteria it addresses
-
----
-
-# Supplying context
-
-At the minimum: a link in the MR description back to the jira
-
-Better: explaining which acceptance criteria it addresses
-
-Even better: a general overview of why the changes were made,
-
-and specific technical notes to that task
-
----
-
-# MR notes
-
-Sometimes code isn't self-explanatory
-
-Reviewers can see the _what_ but not the _why_
-
-They can only see the changed lines
-
----
-
-# MR notes
-
-> They don't have your context and intuition
+> Want it to slide through code review
 >
-> Reviewers can see the _what_ but not the _why_
+> They don't have your context and intuition
 
-You can put a little note on the MR
+---
 
-If it's tightly related to another bit of code somewhere, copy-paste it into the comment
+# Supplying context
+
+At the minimum: a link in the MR description back to the jira
+
+---
+
+# Supplying context
+
+At the minimum: a link in the MR description back to the jira
+
+Better: explaining which acceptance criteria it addresses
+
+---
+
+# Supplying context
+
+At the minimum: a link in the MR description back to the jira
+
+Better: explaining which acceptance criteria it addresses (the _why_)
+
+Even better: specific technical notes and a general framework to understand the changes
+
+---
+
+# MR notes
+
+Link back to that framework
+
+Explains the _why_
+
+---
+
+# MR notes
+
+Example:
+
+If a change is tightly related to another bit of code somewhere,
+
+copy-paste it into the comment
+
+---
+
+# MR notes
+
+Example:
 
 Give them a link to a related discussion plus a short TLDR summary
 
@@ -1165,55 +1178,9 @@ More information is better than less
 
 ---
 
-# Next up
+# Anticipate their questions
 
-Anticipate their questions
-
----
-
-# Async
-
-Code review is often async
-
-Reviewers are often in different timezones
-
----
-
-# Hold ups
-
-An unresolved thread can delay it until the next day
-
-Lost momentum
-
-Then code review limbo...
-
----
-
-# Hold ups
-
-MR can rot
-
-Becomes harder and harder to merge
-
----
-
-# The best scenario?
-
----
-
-# The best scenario
-
-Code reviewer approves it on first sighting
-
-More likely if you anticipate their questions and answer in advance
-
----
-
-# MR notes
-
-Put little notes on the MR explaining things that aren't obvious
-
-or would cause eye brows to raise
+Avoid hold ups and code review limbo
 
 ---
 
@@ -1436,13 +1403,13 @@ Don't just throw it at someone
 
 # Scoring it
 
-- your productivity: 2/10
+- your productivity: 3/10
 
 
-- collaborator's productivity: 3/10
+- collaborator's productivity: 2/10
 
 
-- reviewer's productivity: 10/10
+- reviewer's productivity: 9/10
 
 
 - long term maintenance: 4/10
